@@ -25,8 +25,34 @@ from abc import ABC, abstractmethod
 #               └── LayananError
 # ============================================================================
 
-
+# Perubahan Kode Untuk bagian Class
 class BengkelException(Exception):
+    """Base exception untuk seluruh sistem bengkel."""
+    def __init__(self, pesan="Terjadi kesalahan pada sistem bengkel", prefix=""):
+        self.pesan = f"{prefix} {pesan}".strip()
+        super().__init__(self.pesan)
+
+
+class DataTidakValidError(BengkelException):
+    """Error jika data input tidak valid."""
+    def __init__(self, field_name, pesan):
+        self.field_name = field_name
+        super().__init__(f"{field_name}: {pesan}", "[Data Tidak Valid]")
+
+
+class BisnisRuleError(BengkelException):
+    """Error jika melanggar aturan bisnis."""
+    def __init__(self, rule, pesan):
+        self.rule = rule
+        super().__init__(f"{rule}: {pesan}", "[Aturan Bisnis Dilanggar]")
+
+
+class LayananError(BengkelException):
+    """Error terkait layanan bengkel."""
+    def __init__(self, pesan):
+        super().__init__(pesan, "[Error Layanan]")
+
+# class BengkelException(Exception):
     """
     BASE EXCEPTION untuk seluruh sistem bengkel.
     Semua exception kustom mewarisi dari kelas ini.
@@ -34,27 +60,27 @@ class BengkelException(Exception):
     def __init__(self, pesan="Terjadi kesalahan pada sistem bengkel"):
         self.pesan = pesan
         super().__init__(self.pesan)
-
-
-class DataTidakValidError(BengkelException):
-    """Exception untuk DATA INPUT yang tidak valid."""
-    def __init__(self, field_name, pesan):
-        self.field_name = field_name
-        super().__init__(f"[Data Tidak Valid] {field_name}: {pesan}")
-
-
-class BisnisRuleError(BengkelException):
-    """Exception untuk PELANGGARAN ATURAN BISNIS."""
-    def __init__(self, rule, pesan):
-        self.rule = rule
-        super().__init__(f"[Aturan Bisnis Dilanggar] {rule}: {pesan}")
-
-
-class LayananError(BengkelException):
-    """Exception untuk kesalahan terkait LAYANAN."""
-    def __init__(self, pesan):
-        super().__init__(f"[Error Layanan] {pesan}")
-
+#
+#
+#class DataTidakValidError(BengkelException):
+#    """Exception untuk DATA INPUT yang tidak valid."""
+#    def __init__(self, field_name, pesan):
+#        self.field_name = field_name
+#        super().__init__(f"[Data Tidak Valid] {field_name}: {pesan}")
+#
+#
+#class BisnisRuleError(BengkelException):
+#    """Exception untuk PELANGGARAN ATURAN BISNIS."""
+#    def __init__(self, rule, pesan):
+#        self.rule = rule
+#        super().__init__(f"[Aturan Bisnis Dilanggar] {rule}: {pesan}")
+#
+#
+#class LayananError(BengkelException):
+#    """Exception untuk kesalahan terkait LAYANAN."""
+#    def __init__(self, pesan):
+#        super().__init__(f"[Error Layanan] {pesan}")
+#
 
 # ============================================================================
 # BAGIAN 2: ATURAN BISNIS YANG DIIDENTIFIKASI
