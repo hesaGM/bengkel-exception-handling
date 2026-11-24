@@ -167,5 +167,5 @@ finally:
 | No |              Nama                |   NIM    |
 |----|------                            |-----|
 | 1  |  I Nyoman Ganendra Maheswara     |2501020069|
-| 2  |      |     |
+| 2  |  Mainaka Lukas Nirang Nawalawatana | 2501020058 |
 | 3  |      |     |
