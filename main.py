@@ -1,17 +1,4 @@
 from abc import ABC, abstractmethod
-# ============================================================================
-# SISTEM MANAJEMEN BENGKEL - DENGAN EXCEPTION HANDLING
-# ============================================================================
-# Proyek UTS yang telah ditambahkan penanganan pengecualian (exception handling)
-#
-# KOMPONEN YANG DITAMBAHKAN:
-#   1. Identifikasi 4 aturan bisnis yang dapat dilanggar
-#   2. Hierarki custom exception (1 base + 3 turunan)
-#   3. Setter & method menggunakan raise untuk validasi
-#   4. Program utama dengan try, except, else, finally
-#   5. Class diagram di README.md
-# ============================================================================
-
 
 # ============================================================================
 # BAGIAN 1: HIERARKI CUSTOM EXCEPTION
